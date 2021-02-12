@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_media_fixtures',
+    'django_filters',
 
     'django_extensions', #for filter in restframework
 

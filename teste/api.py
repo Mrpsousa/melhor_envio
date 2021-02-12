@@ -1,15 +1,23 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from rest_framework.views import APIView
-from datetime import datetime
-import json
-import re
-from .models import Teste
-from rest_framework.response import Response
-from .serializers import TesteSerializer
+from .models import Consumer, Service
+from .serializers import ConsumerSerializer, ServiceSerializer
+from .services.teste_service import obj_list
 
 
-class TesteViewSet(viewsets.ModelViewSet):
-    pagination_class = None
-    queryset = Teste.objects.all()
-    serializer_class = TesteSerializer
+class ConsumerViewSet(viewsets.ModelViewSet):
+    queryset = Consumer.objects.all()
+    serializer_class = ConsumerSerializer
+
+
+class ServiceViewSet(viewsets.ModelViewSet):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+
+
+class DbPopulateViewSet(APIView):
+    def get(self, request):
+        return obj_list()
+
+
 

@@ -1,9 +1,11 @@
-from .api import (TesteViewSet)
+from .api import ConsumerViewSet, DbPopulateViewSet, ServiceViewSet
 from django.conf.urls import url
+from django.urls import path
+
 
 list_actions = {
     'get': 'list',
-    'post': 'create'
+    # 'post': 'create'
 }
 
 
@@ -16,9 +18,10 @@ single_actions = {
 
 
 urlpatterns = [
-    url(r'^tests/$', TesteViewSet.as_view(list_actions), name='testes'),
-    url(r'^test/(?P<pk>\d+)/$', TesteViewSet.as_view(single_actions),
-        name='teste'),       
+    url(r'^consumers/$', ConsumerViewSet.as_view(list_actions), name='consumers'),
+    url(r'^services/$', ServiceViewSet.as_view(list_actions), name='services'),  
+    path('db/populate/',  DbPopulateViewSet.as_view(), name='calcs'),
+    
 ]
 
 

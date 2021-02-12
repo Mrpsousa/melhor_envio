@@ -10,10 +10,22 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class Teste(BaseModel):
-    name = models.CharField(max_length=225)
+class Consumer(BaseModel):
+    consumer_id = models.CharField(max_length=64)
 
     class Meta:
-        verbose_name = 'Teste'
-        verbose_name_plural = 'Testes'
+        verbose_name = 'Consumer'
+        verbose_name_plural = 'Consumers'
+        ordering = ['id']
+
+
+class Service(BaseModel):
+    service_id = models.CharField(max_length=64)
+    latency_proxy = models.IntegerField(blank=False, null=False)
+    latency_gateway = models.IntegerField(blank=False, null=False)
+    latency_request = models.IntegerField(blank=False, null=False)
+
+    class Meta:
+        verbose_name = 'Service'
+        verbose_name_plural = 'Service'
         ordering = ['id']
