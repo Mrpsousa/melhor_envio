@@ -1,4 +1,5 @@
-from .api import ConsumerViewSet, DbPopulateViewSet, ServiceViewSet
+from .api import (DbPopulateView, WorkDataViewSet, RequestsByConsumerView,
+                  RequestsByServiceView, CsvServiceView, AverageTimeView)
 from django.conf.urls import url
 from django.urls import path
 
@@ -18,10 +19,14 @@ single_actions = {
 
 
 urlpatterns = [
-    url(r'^consumers/$', ConsumerViewSet.as_view(list_actions), name='consumers'),
-    url(r'^services/$', ServiceViewSet.as_view(list_actions), name='services'),  
-    path('db/populate/',  DbPopulateViewSet.as_view(), name='calcs'),
-    
+    url(r'^workdata/$', WorkDataViewSet.as_view(list_actions),
+        name='work_data'),
+    path('db/populate/',  DbPopulateView.as_view(), name='populate'),
+    path('to/csv/',  CsvServiceView.as_view(), name='csv'),
+    path('requests/consumer/',  RequestsByConsumerView.as_view(),
+         name='requests_by_consumer'),
+    path('requests/service/',  RequestsByServiceView.as_view(),
+         name='requests_by_service'),
+    path('average/time/',  AverageTimeView.as_view(), name='average_time'),
+
 ]
-
-
