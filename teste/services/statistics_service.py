@@ -4,20 +4,25 @@ import pandas as pd
 
 
 def requests_by_consumer():
-    consumer_table = pd.read_csv('out.csv')
-    consumers = consumer_table[['consumer_id', 'count']].groupby('consumer_id').sum()
-    print(consumers) #apagar depois
-    consumers.to_csv('relatorio_requests_by_consumer.csv')
-    return status_msg.sucess_data_200("foi consumer")
-   
+    try:
+        consumer_table = pd.read_csv('out.csv')
+        consumers = consumer_table[['consumer_id', 'count']].groupby('consumer_id').sum()
+        print(consumers) #apagar depois
+        consumers.to_csv('relatorio_requests_by_consumer.csv')
+        return status_msg.sucess_data_200("foi consumer")
+    except Exception as err:
+        return status_msg.error_500(err)
+        
 
 def requests_by_service():
-    consumer_table = pd.read_csv('out.csv')
-    consumers = consumer_table[['service_id', 'count']].groupby('service_id').sum()
-    print(consumers) #apagar depois
-    consumers.to_csv('relatorio_requests_by_service.csv')
-    return status_msg.sucess_data_200("foi service")
-
+    try:    
+        consumer_table = pd.read_csv('out.csv')
+        consumers = consumer_table[['service_id', 'count']].groupby('service_id').sum()
+        print(consumers) #apagar depois
+        consumers.to_csv('relatorio_requests_by_service.csv')
+        return status_msg.sucess_data_200("foi service")
+    except Exception as err:
+        return status_msg.error_500(err)
 
 #TODO
 

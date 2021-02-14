@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^workdata/$', WorkDataViewSet.as_view(list_actions),
         name='work_data'),
     path('db/populate/',  DbPopulateView.as_view(), name='populate'),
-    path('to/csv/',  CsvServiceView.as_view(), name='csv'),
+    path('to/csv/',  CsvServiceView.as_view(), name='generate_csv'),
     path('requests/consumer/',  RequestsByConsumerView.as_view(),
          name='requests_by_consumer'),
     path('requests/service/',  RequestsByServiceView.as_view(),

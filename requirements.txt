@@ -21,3 +21,4 @@ django-cursor-pagination==0.1.4
 django-utils-six==2.0
 numpy==1.20.1
 pandas==1.2.2
+coverage==5.4
