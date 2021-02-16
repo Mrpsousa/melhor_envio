@@ -3,12 +3,15 @@ import csv
 from common.status_msgs import status_msg
 from ..models import WorkData
 from ..utils.queries_helper import chunked_queryset_iterator
+from django.db import transaction
 
-#
-# Lembrar de tratar com transaction/rollback e try/catch
-#
 
+
+@transaction.atomic
 def populate():
+    '''
+       Popula o banco 
+    '''
     try:    
         datas = open('logs2.txt').readlines()
         for data in datas:
@@ -21,13 +24,17 @@ def populate():
                                     'gateway'],
                                     latency_request=data_new['latencies'][
                                     'request'])
-
+        
         return status_msg.sucess_data_200("Consumers and Services populated")
     except Exception as err:
+        transaction.set_rollback(True)
         return status_msg.error_500(err)
         
 
 def to_csv():
+    '''
+       Gera CSV 
+    '''
     try:
         writer = csv.writer(open("out.csv", 'w'))
         writer.writerow(['consumer_id', 'service_id', 'latency_proxy',
@@ -46,3 +53,6 @@ def to_csv():
         return status_msg.sucess_data_200("Generated CSV")
     except Exception as err:
         return status_msg.error_500(err)
+
+
+      
