@@ -1,14 +1,17 @@
-# Backend Robô django
+# Api Logs
 
 ## Run
-    - (de preferência criar venv)
     Na raiz do projeto
-        - pip install -r requirements.txt
-        - fab dev
-        - python3 manage.py runserver 
-## DB
-    Na raiz do projeto (sem uso)
-        - sudo docker-compose up
-        - docker ps 
+        $ sudo docker-compose up
+        $ python3 manage.py makemigrations
+        $ python3 manage.py migrate
+        $ python3 manage.py runserver 
+
 ## Swagger
     http://127.0.0.1:8000/api/swagger/
+
+
+## Tests and Coverage
+     Na raiz do projeto
+        $ coverage run manage.py test
+        $ coverage report
