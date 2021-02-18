@@ -15,3 +15,6 @@
      Na raiz do projeto
         $ coverage run manage.py test
         $ coverage report
+
+### DB Populate
+    - Para popular o banco, get no enpoint: {{base_url}}api/db/populate/

@@ -12,7 +12,7 @@ def populate():
        Popula o banco de dados
     '''
     try:
-        datas = open('logs2.txt').readlines()
+        datas = open('logs.txt').readlines()
         for data in datas:
             data_new = json.loads(data)
             WorkData.objects.create(consumer_id=data_new[
