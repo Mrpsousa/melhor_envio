@@ -17,4 +17,4 @@
         $ coverage report
 
 ### DB Populate
-    - Para popular o banco, get no enpoint: {{base_url}}api/db/populate/
+    - Para popular o banco, fazer requisição 'get' no enpoint: http://127.0.0.1:8000/api/db/populate/
