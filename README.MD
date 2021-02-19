@@ -2,6 +2,7 @@
 
 ## Run
     Na raiz do projeto
+        $ sudo docker-compose build # em caso de atualização do requirements
         $ sudo docker-compose up (para sistemas operacionais linux/debian)
 
 ## Swagger

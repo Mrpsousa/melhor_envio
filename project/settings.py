@@ -13,24 +13,24 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 # Heroku config
 import django_heroku
 from datetime import timedelta
-# from decouple import config
+from decouple import config
 from dj_database_url import parse as dburl
 import os
 import sys
-from .aux_settings import SECRET_KEY
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-from datetime import timedelta
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = '2u&+23^6%q8y%h7u(i6j)j_#fs3klg_2z4@+%+imhn5*6i)m+h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 
 # Application definition
@@ -164,7 +164,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SITE_ID = 1
 # end Heroku config
 
-# APPEND_SLASH=False
+# APPEND_SLASH=Falsepip uninstall decouple
+
 django_heroku.settings(locals())
 
 
