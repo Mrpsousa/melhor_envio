@@ -15,10 +15,11 @@
 
 
 ## Step by step
-    Passo 1: popular o banco
-    Passo 2: gerar CSV base para cálculos
-    Passo 3: gerar os relatórios em CSV solicitados no teste (os mesmos são gerados na raiz do projeto)
-    Passo 4: rodar os testes e análise de cobertura
+    Passo 1: Mover o arquivo logs.txt para raiz do projeto
+    Passo 2: popular o banco
+    Passo 3: gerar CSV base para cálculos
+    Passo 4: gerar os relatórios em CSV solicitados no teste (os mesmos são gerados na raiz do projeto)
+    Passo 5: rodar os testes e análise de cobertura
 
 
 
