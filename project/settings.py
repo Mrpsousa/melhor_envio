@@ -17,7 +17,7 @@ from datetime import timedelta
 from dj_database_url import parse as dburl
 import os
 import sys
-from .local_settings import SECRET_KEY
+from .aux_settings import SECRET_KEY
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
