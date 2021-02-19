@@ -175,7 +175,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'core.nao.responda@gmail.com'
 EMAIL_HOST_PASSWORD = '5gFbRyVh5u95jvS6'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
