@@ -1,9 +1,12 @@
-FROM alpine:3.12.3
-RUN apk --update add python3 py3-pip postgresql-dev --no-cache
-RUN mkdir /code
-COPY . /code/
-RUN pip install --no-cache-dir -r /code/requirements.txt
-RUN apk del dependencias
+
+FROM python:3.8
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 WORKDIR /code
 
-CMD python3 manage.py runserver
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .

@@ -2,10 +2,11 @@
 
 ## Run
     Na raiz do projeto
+        $ sudo docker-compose run web python3 manage.py migrate
         $ sudo docker-compose up
-        $ python3 manage.py makemigrations
+        <!-- $ python3 manage.py makemigrations
         $ python3 manage.py migrate
-        $ python3 manage.py runserver 
+        $ python3 manage.py runserver  -->
 
 ## Swagger
     http://127.0.0.1:8000/api/swagger/

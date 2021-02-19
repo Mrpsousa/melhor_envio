@@ -13,10 +13,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 # Heroku config
 import django_heroku
 from datetime import timedelta
-from decouple import config
+# from decouple import config
 from dj_database_url import parse as dburl
 import os
 import sys
+from .local_settings import SECRET_KEY
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,10 +27,10 @@ from datetime import timedelta
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='2u&+23^6%q8y%h7u(i6j)j_#fs3klg_2z4@+%+imhn5*6i)m+h')
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+# DEBUG = config('DEBUG', default=True, cast=bool)
 
 
 # Application definition
@@ -114,16 +115,16 @@ if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing an
     }
 else:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'teste',
-            'USER': 'lactec',
-            'PASSWORD': 'root',
-            'HOST': 'localhost',
-            'PORT': 5432,
-            'ATOMIC_REQUESTS': True,
-        }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",
+        "PORT": 5432,
+        'ATOMIC_REQUESTS': True
     }
+}
   
 
 
